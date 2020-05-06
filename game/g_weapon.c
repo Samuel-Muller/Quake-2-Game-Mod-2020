@@ -359,6 +359,7 @@ void fire_blaster (edict_t *self, vec3_t start, vec3_t dir, int damage, int spee
 	VectorCopy (start, bolt->s.origin);
 	VectorCopy (start, bolt->s.old_origin);
 	vectoangles (dir, bolt->s.angles);
+	speed = speed / 4;
 	VectorScale (dir, speed, bolt->velocity);
 	bolt->movetype = MOVETYPE_FLYMISSILE;
 	bolt->clipmask = MASK_SHOT;
@@ -366,7 +367,7 @@ void fire_blaster (edict_t *self, vec3_t start, vec3_t dir, int damage, int spee
 	bolt->s.effects |= effect;
 	VectorClear (bolt->mins);
 	VectorClear (bolt->maxs);
-	bolt->s.modelindex = gi.modelindex ("models/objects/laser/tris.md2");
+	bolt->s.modelindex = gi.modelindex ("models/monsters/boss1/tris.md2");
 	bolt->s.sound = gi.soundindex ("misc/lasfly.wav");
 	bolt->owner = self;
 	bolt->touch = blaster_touch;

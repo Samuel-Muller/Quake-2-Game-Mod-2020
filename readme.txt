@@ -27,3 +27,6 @@ John Carmack
 Id Software
 
 
+
+Modified: made the blaster bolts use the model of one of the bosses, and fly at 1/4 of their original speed.
+
