@@ -899,6 +899,12 @@ void Cmd_PlayerList_f(edict_t *ent)
 	gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 
+void Cmd_NextWave_f(edict_t *ent)
+{
+	level.wave_number += 1;
+	level.wave_timer = 0;
+}
+
 
 /*
 =================
@@ -987,6 +993,8 @@ void ClientCommand (edict_t *ent)
 		Cmd_Wave_f (ent);
 	else if (Q_stricmp(cmd, "playerlist") == 0)
 		Cmd_PlayerList_f(ent);
+	else if (Q_stricmp(cmd, "wnext") == 0)
+		Cmd_NextWave_f(ent);
 	else	// anything that doesn't match a command will be a chat
 		Cmd_Say_f (ent, false, true);
 }

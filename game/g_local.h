@@ -342,6 +342,7 @@ typedef struct
 	int			wave_number;
 	int			max_waves;
 	int			wave_timer;			// not using the existing level.time because this is easier to edit and reset to 0 without subtracting and juggling things
+	int			spawned_count;
 } level_locals_t;
 
 

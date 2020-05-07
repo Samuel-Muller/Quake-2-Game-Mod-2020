@@ -1809,10 +1809,11 @@ void ClientBeginServerFrame (edict_t *ent)
 		level.wave_timer = 0;
 	}
 	if (level.wave_number >= 10) {
-		gi.cprintf(ent, PRINT_HIGH, "*********\n");
-		gi.cprintf(ent, PRINT_HIGH, "YOU WIN!!\n");
-		gi.cprintf(ent, PRINT_HIGH, "*********\n");
-
-		Cmd_God_f(ent);
+		if (!(ent->flags & FL_GODMODE)){
+			Cmd_God_f(ent);
+			gi.cprintf(ent, PRINT_HIGH, "*********\n");
+			gi.cprintf(ent, PRINT_HIGH, "YOU WIN!!\n");
+			gi.cprintf(ent, PRINT_HIGH, "*********\n");
+		}
 	}
 }
