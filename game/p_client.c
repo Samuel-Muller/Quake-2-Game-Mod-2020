@@ -228,16 +228,16 @@ void ClientObituary (edict_t *self, edict_t *inflictor, edict_t *attacker)
 		switch (mod)
 		{
 		case MOD_SUICIDE:
-			message = "suicides";
+			message = "committed die";
 			break;
 		case MOD_FALLING:
-			message = "cratered";
+			message = "went splat";
 			break;
 		case MOD_CRUSH:
-			message = "was squished";
+			message = "was crushed flat";
 			break;
 		case MOD_WATER:
-			message = "sank like a rock";
+			message = "tried to breath blue air";
 			break;
 		case MOD_SLIME:
 			message = "melted";
@@ -247,13 +247,13 @@ void ClientObituary (edict_t *self, edict_t *inflictor, edict_t *attacker)
 			break;
 		case MOD_EXPLOSIVE:
 		case MOD_BARREL:
-			message = "blew up";
+			message = "exploded into bits";
 			break;
 		case MOD_EXIT:
 			message = "found a way out";
 			break;
 		case MOD_TARGET_LASER:
-			message = "saw the light";
+			message = "got fried by lasers";
 			break;
 		case MOD_TARGET_BLASTER:
 			message = "got blasted";
@@ -1802,4 +1802,10 @@ void ClientBeginServerFrame (edict_t *ent)
 			PlayerTrail_Add (ent->s.old_origin);
 
 	client->latched_buttons = 0;
+
+	level.wave_timer += 1;
+	if (level.wave_timer >= 350) {	//should be a bit over 1 minute per wave
+		level.wave_number += 1;
+		level.wave_timer = 0;
+	}
 }

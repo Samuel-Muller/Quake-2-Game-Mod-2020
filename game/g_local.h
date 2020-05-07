@@ -338,6 +338,10 @@ typedef struct
 	int			body_que;			// dead bodies
 
 	int			power_cubes;		// ugly necessity for coop
+
+	int			wave_number;
+	int			max_waves;
+	int			wave_timer;			// not using the existing level.time because this is easier to edit and reset to 0 without subtracting and juggling things
 } level_locals_t;
 
 
