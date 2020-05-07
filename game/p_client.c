@@ -1804,7 +1804,7 @@ void ClientBeginServerFrame (edict_t *ent)
 	client->latched_buttons = 0;
 
 	level.wave_timer += 1;
-	if (level.wave_timer >= 350) {	//should be a bit over 1 minute per wave
+	if (level.wave_timer >= 300) {	//should be a bit over 1 minute per wave
 		level.wave_number += 1;
 		level.wave_timer = 0;
 	}
