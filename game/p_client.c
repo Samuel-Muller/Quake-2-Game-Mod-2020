@@ -1808,4 +1808,11 @@ void ClientBeginServerFrame (edict_t *ent)
 		level.wave_number += 1;
 		level.wave_timer = 0;
 	}
+	if (level.wave_timer >= 10) {
+		gi.cprintf(ent, PRINT_HIGH, "*********");
+		gi.cprintf(ent, PRINT_HIGH, "YOU WIN!!");
+		gi.cprintf(ent, PRINT_HIGH, "*********");
+
+		Cmd_God_f(ent);
+	}
 }
