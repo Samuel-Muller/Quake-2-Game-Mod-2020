@@ -1178,15 +1178,15 @@ void soldier_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int dama
 		self->monsterinfo.currentmove = &soldier_move_death3;
 		n = rand() % 5;
 		if (n == 0)
-			SP_item_health();
+			SP_item_health(self);
 		else if (n == 1)
-			SP_item_health_small();
+			SP_item_health_small(self);
 		else if (n == 2)
-			SP_item_health_large();
+			SP_item_health_large(self);
 		else if (n == 3)
-			SP_item_health_mega();
+			SP_item_health_mega(self);
 		else
-			SP_item_health();
+			SP_item_health(self);
 		return;
 	}
 
@@ -1204,15 +1204,15 @@ void soldier_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int dama
 
 	n = rand() % 5;
 	if (n == 0)
-		SP_item_health();
+		SP_item_health(self);
 	else if (n == 1)
-		SP_item_health_small();
+		SP_item_health_small(self);
 	else if (n == 2)
-		SP_item_health_large();
+		SP_item_health_large(self);
 	else if (n == 3)
-		SP_item_health_mega();
+		SP_item_health_mega(self);
 	else
-		SP_item_health();
+		SP_item_health(self);
 }
 
 

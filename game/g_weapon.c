@@ -343,21 +343,17 @@ void blaster_touch (edict_t *self, edict_t *other, cplane_t *plane, csurface_t *
 }
 
 void plant_think(edict_t *self) {
-	self->plant_age++;
-
-	if (self->plant_age >= 3) {//change to be higher, just testing to see if it works
 		int n = rand() % 5;
 		if (n == 0)
-			SP_item_health();
+			SP_item_health(self);
 		else if (n == 1)
-			SP_item_health_small();
+			SP_item_health_small(self);
 		else if (n == 2)
-			SP_item_health_large();
+			SP_item_health_large(self);
 		else if (n == 3)
-			SP_item_health_mega();
+			SP_item_health_mega(self);
 		else
-			SP_item_health();
-	}
+			SP_item_health_small(self);
 }
 
 void fire_blaster(edict_t *self, vec3_t start, vec3_t dir, int damage, int speed, int effect, qboolean hyper)
@@ -366,7 +362,7 @@ void fire_blaster(edict_t *self, vec3_t start, vec3_t dir, int damage, int speed
 	trace_t	tr;
 
 	plant = G_Spawn();
-	plant->svflags = SVF_DEADMONSTER; // no collision I think
+	plant->svflags = SVF_MONSTER;
 	VectorCopy(start, plant->s.origin);
 	VectorCopy(start, plant->s.old_origin);
 	//vectoangles (dir, bolt->s.angles);
@@ -381,7 +377,7 @@ void fire_blaster(edict_t *self, vec3_t start, vec3_t dir, int damage, int speed
 	plant->s.sound = gi.soundindex("misc/lasfly.wav");
 	plant->owner = self;
 	//bolt->touch = blaster_touch;
-	plant->nextthink = level.time + 2;
+	plant->nextthink = level.time + 30;
 	plant->think = plant_think;
 	plant->classname = "plant";
 	gi.linkentity(plant);

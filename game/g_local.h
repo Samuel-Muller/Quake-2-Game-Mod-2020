@@ -1118,3 +1118,8 @@ struct edict_s
 	int			plant_age;
 };
 
+void SP_item_health(edict_t *self);
+void SP_item_health_small(edict_t *self);
+void SP_item_health_large(edict_t *self);
+void SP_item_health_mega(edict_t *self);
+
