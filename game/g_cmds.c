@@ -903,6 +903,8 @@ void Cmd_NextWave_f(edict_t *ent)
 {
 	level.wave_number += 1;
 	level.wave_timer = 0;
+	level.spawned_count = 0;
+	level.spawn_spreader = 0;
 }
 
 

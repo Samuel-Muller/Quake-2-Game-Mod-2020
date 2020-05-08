@@ -1804,10 +1804,24 @@ void ClientBeginServerFrame (edict_t *ent)
 	client->latched_buttons = 0;
 
 	level.wave_timer += 1;
-	if (level.wave_timer >= 300) {	//should be a bit over 1 minute per wave
+	if (level.wave_timer >= 350) {	//should be a bit over 1 minute per wave
 		level.wave_number += 1;
 		level.wave_timer = 0;
+		level.spawned_count = 0;
+		level.spawn_spreader = 0;
 	}
+
+	level.spawn_spreader++;
+	if (level.wave_number != 0 && level.spawned_count < level.wave_number + 3) {
+		edict_t *newEnemy = G_Spawn();
+		newEnemy->s.origin[0] = 188 - 64;
+		newEnemy->s.origin[1] = -300 + 40 * level.spawn_spreader;
+		newEnemy->s.origin[2] = 25;
+
+		SP_monster_soldier(newEnemy);
+		level.spawned_count += 1;
+	}
+
 	if (level.wave_number >= 10) {
 		if (!(ent->flags & FL_GODMODE)){
 			Cmd_God_f(ent);
