@@ -229,7 +229,7 @@ void target_explosion_explode (edict_t *self)
 	float		save;
 
 	gi.WriteByte (svc_temp_entity);
-	gi.WriteByte (TE_EXPLOSION1);
+	gi.WriteByte(TE_BFG_EXPLOSION);
 	gi.WritePosition (self->s.origin);
 	gi.multicast (self->s.origin, MULTICAST_PHS);
 
