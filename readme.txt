@@ -1,3 +1,5 @@
+For my game mod, go to the Quake-vs-Zombies branch.
+
 
 This is the complete source code for Quake 2, version 3.19, buildable with
 visual C++ 6.0.  The linux version should be buildable, but we haven't
