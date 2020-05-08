@@ -1176,6 +1176,17 @@ void soldier_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int dama
 	{
 		// head shot
 		self->monsterinfo.currentmove = &soldier_move_death3;
+		n = rand() % 5;
+		if (n == 0)
+			SP_item_health();
+		else if (n == 1)
+			SP_item_health_small();
+		else if (n == 2)
+			SP_item_health_large();
+		else if (n == 3)
+			SP_item_health_mega();
+		else
+			SP_item_health();
 		return;
 	}
 
@@ -1190,6 +1201,18 @@ void soldier_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int dama
 		self->monsterinfo.currentmove = &soldier_move_death5;
 	else
 		self->monsterinfo.currentmove = &soldier_move_death6;
+
+	n = rand() % 5;
+	if (n == 0)
+		SP_item_health();
+	else if (n == 1)
+		SP_item_health_small();
+	else if (n == 2)
+		SP_item_health_large();
+	else if (n == 3)
+		SP_item_health_mega();
+	else
+		SP_item_health();
 }
 
 
