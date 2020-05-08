@@ -365,12 +365,6 @@ void fire_blaster(edict_t *self, vec3_t start, vec3_t dir, int damage, int speed
 	plant->svflags = SVF_MONSTER;
 	VectorCopy(start, plant->s.origin);
 	VectorCopy(start, plant->s.old_origin);
-	//vectoangles (dir, bolt->s.angles);
-	//VectorScale (dir, speed, bolt->velocity);
-	//bolt->movetype = MOVETYPE_FLYMISSILE;
-	//plant->clipmask = MASK_SHOT;
-	//bolt->solid = SOLID_BBOX;
-	//bolt->s.effects |= effect;
 	VectorClear(plant->mins);
 	VectorClear(plant->maxs);
 	plant->s.modelindex = gi.modelindex("models/monsters/brain/tris.md2");
@@ -381,6 +375,9 @@ void fire_blaster(edict_t *self, vec3_t start, vec3_t dir, int damage, int speed
 	plant->think = plant_think;
 	plant->classname = "plant";
 	gi.linkentity(plant);
+	gi.WriteByte(svc_temp_entity);
+	gi.WriteByte(TE_GRENADE_EXPLOSION);
+	gi.WritePosition(self->s.origin);
 }
 
 

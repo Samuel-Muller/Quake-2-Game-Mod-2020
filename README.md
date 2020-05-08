@@ -24,4 +24,4 @@
 *	UI Changes
     - Changed the help menu to display data about waves. To see updated help menu background, put it in the appropriate folder in the pak files.
 *	In Game Visuals (temporary entities)
-    - ***Update***
+    - Made a temp entity explosion when planting plants
