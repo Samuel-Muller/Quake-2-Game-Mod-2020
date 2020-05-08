@@ -8,7 +8,7 @@
 *	Plants Give bonuses / attack enemies when mature
     - After a little while, plants mature and spawn a randomized health bonus
 *	Monsters spawn in waves to attack the plants and then the player
-    - ***Update***
+    - Monsters spawn in groups of 3 + wave number near the start of the level.
 *	Win conditions based on surviving a number of waves
     - Waves count up, lasting about a minute. At wave 10, a win message is displayed in the console, and the player is given god mode. To advance waves for easy testing, use command wnext in the console.
 *	5 bonuses that can drop from enemies
